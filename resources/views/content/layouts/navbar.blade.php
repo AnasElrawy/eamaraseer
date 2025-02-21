@@ -172,7 +172,7 @@ Header Area
                     <div class="col-auto d-none d-xl-block">
                         <div class="header-button">
                             <a href="{{ route('consulting') }}" class="th-btn style-border th-btn-icon">طلب
-                                استشارة
+                                خدمة
                             </a>
                         </div>
                     </div>

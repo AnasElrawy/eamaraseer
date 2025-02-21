@@ -88,7 +88,46 @@
             <div class="row gx-35">
                 <div class="col-lg-6">
                     <div class="appointment-wrap2 bg-white me-xxl-5">
-                        <h2 class="form-title text-theme">طلب استشارة</h2>
+                        <h2 class="form-title text-theme">طلب خدمة</h2>
+                        {{-- <form action="{{ route('consultations.store') }}" method="POST"
+                            class="appointment-form ajax-contact">
+                            @csrf
+                            <div class="row">
+                                <div class="col-12 form-group style-border style-radius">
+                                    <input type="text" class="form-control" name="name" id="name"
+                                        placeholder="الاسم بالكامل*" required>
+                                    <i class="fal fa-user"></i>
+                                </div>
+                                <div class="col-12 form-group style-border style-radius">
+                                    <input type="text" class="form-control" name="phone" id="phone"
+                                        placeholder="رقم الهاتف*" required>
+                                    <i class="fal fa-phone"></i>
+                                </div>
+                            
+                                <!-- القائمة المنسدلة للخدمات -->
+                                <div class="col-md-12 col-12 form-group style-border style-radius">
+                                    <select name="service_id" class="form-control" required>
+                                        <option value="">اختر الخدمة</option>
+                                        @foreach($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <i class="fal fa-list"></i>
+                                </div>
+                            
+                                <div class="col-12 form-group style-border style-radius">
+                                    <i class="far fa-comments"></i>
+                                    <textarea name="message" class="form-control" placeholder="رسالة..." required></textarea>
+                                </div>
+                                <div class="col-12 form-btn mt-4 text-center">
+                                    <button type="submit" class="th-btn w-100">ارسال <span class="btn-icon">
+                                        <img src="{{ asset('assets') }}/img/icon/paper-plane.svg" alt="img">
+                                    </span></button>
+                                </div>
+                            </div>
+                            <p class="form-messages mb-0 mt-3"></p>
+                        </form>
+                     --}}
                         <form action="{{ route('consultations.store') }}" method="POST"
                             class="appointment-form ajax-contact">
                             @csrf
@@ -103,6 +142,18 @@
                                         placeholder="رقم الهاتف*" required>
                                     <i class="fal fa-phone"></i>
                                 </div>
+                                
+                                <!-- القائمة المنسدلة للخدمات -->
+                                <div class="col-md-12 col-12 form-group style-border style-radius">
+                                    <select name="service_id" class="form-control" required>
+                                        <option value="">اختر الخدمة</option>
+                                        @foreach($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    <i class="fal fa-list"></i>
+                                </div>
+                            
                                 <div class="col-12 form-group style-border style-radius">
                                     <i class="far fa-comments"></i>
                                     <textarea name="message" class="form-control" placeholder="رسالة..." required></textarea>

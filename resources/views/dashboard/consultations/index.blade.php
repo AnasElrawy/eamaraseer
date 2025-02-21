@@ -23,6 +23,7 @@
                                 <th>#</th>
                                 <th>الاسم</th>
                                 <th>رقم الهاتف</th>
+                                <th>نوع الخدمة</th>
                                 <th>الرسالة</th>
                                 <th>تاريخ الإنشاء</th>
                                 <th>الإجراءات</th>
@@ -34,6 +35,7 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $consulting->name }}</td>
                                     <td>{{ $consulting->phone }}</td>
+                                    <td>{{ $consulting->service ? $consulting->service->name : 'غير محدد' }}</td>
                                     <td>{{ $consulting->message }}</td>
                                     <td>{{ $consulting->created_at->format('Y-m-d') }}</td>
                                     <td>

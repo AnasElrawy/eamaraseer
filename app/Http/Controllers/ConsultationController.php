@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
 {
     public function index()
     {
-        $consultations = Consultation::all();
+        $consultations = Consultation::with('service')->get();
         return view('dashboard.consultations.index', compact('consultations'));
     }
 
@@ -24,11 +25,12 @@ class ConsultationController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:15',
+            'service_id' =>'required',
             'message' => 'required|string',
         ]);
 
         Consultation::create($validated);
-        return redirect()->back()->with('success', 'استلام طلب الاستشارة بنجاح!');
+        return redirect()->back()->with('success', 'استلام طلب الخدمة بنجاح!');
     }
 
     public function update(Request $request, $id)

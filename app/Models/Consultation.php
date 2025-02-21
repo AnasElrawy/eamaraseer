@@ -15,5 +15,12 @@ class Consultation extends Model
         'name',
         'phone',
         'message',
+        'service_id',
     ];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+
 }

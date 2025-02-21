@@ -17,4 +17,10 @@ class Service extends Model
         'image',
         'icon',
     ];
+
+    public function consultations()
+    {
+        return $this->hasMany(Consultation::class);
+    }
+
 }

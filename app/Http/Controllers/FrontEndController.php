@@ -41,7 +41,8 @@ class FrontEndController extends Controller
 
     public function consulting()
     {
-        return view('content.consulting.index');
+        $services = Service::all();
+        return view('content.consulting.index',compact('services'));
     }
 
 

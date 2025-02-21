@@ -127,7 +127,7 @@
                 </div>
                 <div class="col-auto">
                     <div class="sec-btn">
-                        <a href="{{ route('consulting') }}" class="th-btn style-border th-btn-icon">طلب استشارة</a>
+                        <a href="{{ route('consulting') }}" class="th-btn style-border th-btn-icon">طلب الحدمة</a>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@
                                                 </span>
                                             </h1>
                                             <a href="{{ route('consulting') }}" class="th-btn style4 th-btn-icon" data-ani="slideinup"
-                                                data-ani-delay="0.6s">طلب استشارة
+                                                data-ani-delay="0.6s">طلب خدمة
                                             </a>
                                         </div>
                                     </div>
@@ -535,13 +535,15 @@
                             <div class="swiper-slide">
                                 <div class="portfolio-card style4">
                                     <div class="portfolio-img">
-                                        <img src="{{ asset('assets') }}/img/project/project_4_1.png" alt="project image">
+                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" alt="project image">
                                     </div>
                                     <div class="portfolio-content">
                                         <h3 class="portfolio-title"><a href="{{ route('project', $project->id ) }}">{{ $project->title }}
                                             </a></h3>
-                                        <p class="portfolio-text">{{ $project->description }}
-                                        </p>
+                                            <a href="{{ route('project', $project->id ) }}">
+                                                <p class="portfolio-text">{{ $project->description }}
+                                                </p>
+                                            </a>
                                     </div>
                                 </div>
                             </div>
