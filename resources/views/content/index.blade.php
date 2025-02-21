@@ -554,7 +554,7 @@
                 </div>
             </div>
             <div class="btn-wrap justify-content-center mt-55">
-                <a href="#" class="th-btn style4 th-btn-icon">تصفح جميع المشاريع
+                <a href="{{ route('projects') }}" class="th-btn style4 th-btn-icon">تصفح جميع المشاريع
                 </a>
             </div>
         </div>

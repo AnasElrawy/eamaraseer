@@ -21,6 +21,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/', [FrontEndController::class, 'index'])->name('index');
 Route::get('/about-us', [FrontEndController::class, 'about'])->name('about');
+Route::get('/all-projects', [FrontEndController::class, 'projects'])->name('projects');
 Route::get('/projects/{id}/show', [FrontEndController::class, 'project'])->name('project');
 
 Route::get('/consulting', [FrontEndController::class, 'consulting'])->name('consulting');

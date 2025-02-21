@@ -17,7 +17,7 @@
                     <div class="breadcumb-content">
                         <h1 class="breadcumb-title">{{ $project->title }}</h1>
                         <ul class="breadcumb-menu">
-                            <li><a href="#">المشاريع</a></li>
+                            <li><a href="{{ route('projects') }}">المشاريع</a></li>
                             <li>تفاصييل المشروع</li>
                         </ul>
                     </div>
