@@ -74,7 +74,7 @@
                 </li>
 
 
-
+{{-- 
                 <li class="nav-item">
                     <a class="nav-link menu-link collapsed" href="#sidebarConsultations" data-bs-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="sidebarConsultations">
@@ -84,6 +84,22 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{ route('consultations.index') }}" class="nav-link"> عرض الاستشارات </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+
+                
+                <!-- المهتمين بالعقار -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarRealEstate" data-bs-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="sidebarRealEstate">
+                        <i class="ti ti-home"></i> <span>المهتمين بالعقار</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarRealEstate">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('real-estate-interests.index') }}" class="nav-link"> عرض المهتمين </a>
                             </li>
                         </ul>
                     </div>
@@ -101,6 +117,9 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('services.index') }}" class="nav-link"> عرض الخدمات </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('consultations.index') }}" class="nav-link"> عرض طلبات الخدمات</a>
                             </li>
                         </ul>
                     </div>

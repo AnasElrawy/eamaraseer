@@ -15,6 +15,12 @@
     <meta content="{{ $setting->meta_description }}" name="description">
     <meta name="keywords" content="{{ $setting->meta_keywords }}">
 
+    <!-- تحميل Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- تحميل DataTables لـ Bootstrap 5 -->
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"> --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap5.min.css">
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('' . $setting->favicon) }}">
 
@@ -161,6 +167,10 @@
 
     {{-- @include('dashboard.layouts.customizer') --}}
 
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+
+
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('dashboard') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -168,7 +178,10 @@
 
     <script src="{{ asset('dashboard') }}/libs/toastify-js/src/toastify.js"></script>
     <script src="{{ asset('dashboard') }}/libs/flatpickr/flatpickr.min.js"></script>
-    <script src="{{ asset('dashboard') }}/libs/choices.js/public/{{ asset('dashboard') }}/scripts/choices.min.js"></script>
+    {{-- <script src="{{ asset('dashboard') }}/libs/choices.js/public/{{ asset('dashboard') }}/scripts/choices.min.js"></script> --}}
+    <script src="{{ asset('dashboard') }}/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -192,16 +205,25 @@
 
 
     <script src="{{ asset('dashboard') }}/js/pages/datatables.init.js"></script>
+    
+    <script src="{{ asset('dashboard') }}/libs/list.js/list.min.js"></script>
 
     <script src="{{ asset('dashboard') }}/js/pages/dashboard-analytics.init.js"></script>
 
     <script src="{{ asset('dashboard') }}/libs/apexcharts/apexcharts.min.js"></script>
 
-    <script src="{{ asset('dashboard') }}/libs/list.js/list.min.js"></script>
-
     <script src="{{ asset('dashboard') }}/js/app.js"></script>
 
     <script src="{{ asset('dashboard') }}/libs/sweetalert2/sweetalert2.min.js"></script>
+
+    <!-- مكتبات التصدير -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+{{-- <script src="//cdn.datatables.net/plug-ins/1.11.5/i18n/Arabic.json"></script> --}}
+
+
 
 <script>
     // تحقق إذا كانت هناك رسالة نجاح
@@ -224,6 +246,8 @@
         });
     @endif
 </script>
+
+@yield('scripts')
 
 
 </body>

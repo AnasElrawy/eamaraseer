@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RealEstateInterestController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SettingsController;
@@ -26,6 +27,8 @@ Route::get('/projects/{id}/show', [FrontEndController::class, 'project'])->name(
 
 Route::get('/consulting', [FrontEndController::class, 'consulting'])->name('consulting');
 Route::post('consultations', [ConsultationController::class, 'store'])->name('consultations.store');
+Route::post('real-estate-interests', [RealEstateInterestController::class, 'store'])->name('real_estate_interests.store');
+
 
 Route::get('/faqs', [FrontEndController::class, 'faqs'])->name('faqs');
 Route::get('/contact-us', [FrontEndController::class, 'contact'])->name('contact');
@@ -87,6 +90,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('projects/{id}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
     Route::put('projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+    // *Admin Routes - Real estate interests
+    Route::get('real-estate-interests', [RealEstateInterestController::class,'index'])->name('real-estate-interests.index');
+    Route::get('real-estate-interests/{id}', [RealEstateInterestController::class, 'show'])->name('real-estate-interests.show');
+    Route::put('real-estate-interests/{id}', [RealEstateInterestController::class, 'update'])->name('real-estate-interests.update');
+    Route::delete('real-estate-interests/{id}', [RealEstateInterestController::class, 'destroy'])->name('real-estate-interests.destroy');
+
 
     // Admin Routes - Reviews
     Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');

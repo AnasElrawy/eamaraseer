@@ -92,10 +92,27 @@
                             <h4 class="widget_subtitle">للإيجار</h4>
                             <p class="widget_text">أنا مهتم بهذا العقار</p>
 
+{{-- 
+                            <form action="{{ route('real_estate_interests.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="الاسم بالكامل*" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="phone" placeholder="رقم الهاتف*" required>
+                                </div>
+                                <button class="th-btn style-white th-btn-icon mt-15" type="submit">إرسال</button>
+                            </form> --}}
+                            
 
-                            <form action="{{ route('contacts.store') }}" method="POST" class="widget-property-contact-form">
+                            <form action="{{ route('real_estate_interests.store') }}" method="POST" class="widget-property-contact-form">
                                 @csrf
                                 <div class="row">
+
+                                    <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                    
                                     <div class="form-group style-border style-border">
                                         <input type="text" class="form-control" name="name" id="name"
                                             placeholder="الاسم بالكامل*" required>

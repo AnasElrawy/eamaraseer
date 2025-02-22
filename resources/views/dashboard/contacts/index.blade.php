@@ -65,3 +65,43 @@
     <!--end row-->
 </div>
 @endsection
+
+@section('scripts')
+
+<script>
+    
+    $(document).ready(function() {
+        console.log("jQuery و DataTables يعملان!");
+    
+        $('#model-datatables').DataTable().destroy();
+
+        $('#model-datatables').DataTable({
+            dom: 'Bfrtip', // تحديد مكان ظهور الأزرار
+            buttons: [
+                {
+                    extend: 'copy',
+                    text: 'نسخ',
+                    className: 'btn  mb-3'
+                },
+                {
+                    extend: 'excel',
+                    text: 'تصدير Excel',
+                    className: 'btn mb-3'
+                },
+                {
+                    extend: 'print',
+                    text: 'طباعة',
+                    className: 'btn mb-3'
+                }
+            ],
+            language: {
+                // url: "//cdn.datatables.net/plug-ins/1.11.5/i18n/Arabic.json"
+                url: "/assets/fonts/ar.json"
+            }
+        });
+    });
+    
+</script>
+
+@endsection
+
