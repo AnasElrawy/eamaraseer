@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Consultation;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Mail\AdminNotificationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ServiceRequestMail;
+use App\Models\Setting;
 
 class ConsultationController extends Controller
 {
@@ -30,6 +34,15 @@ class ConsultationController extends Controller
         ]);
 
         Consultation::create($validated);
+
+        // Send email to admin
+        $setting = Setting::first();
+        $adminEmail = 'anas_elrawy@yahoo.com';
+        // $adminEmail = $setting->email;
+        Mail::to($adminEmail)->send(new ServiceRequestMail($validated));
+
+
+
         return redirect()->back()->with('success', 'استلام طلب الخدمة بنجاح!');
     }
 

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\RealEstateInterest;
 use Illuminate\Http\Request;
+use App\Mail\AdminNotificationMail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InterestRealEstateMail;
+use App\Models\Setting;
 
 class RealEstateInterestController extends Controller
 {
@@ -29,6 +33,12 @@ class RealEstateInterestController extends Controller
         ]);
 
         RealEstateInterest::create($validated);
+
+        // Send email to admin
+        $setting = Setting::first();
+        $adminEmail = 'anas_elrawy@yahoo.com';
+        // $adminEmail = $setting->email;
+        Mail::to($adminEmail)->send(new InterestRealEstateMail($validated));
 
         return back()->with('success', 'تم إرسال اهتمامك بنجاح!');
     }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Mail\AdminNotificationMail;
+use App\Mail\ContactMessageMail;
+use Illuminate\Support\Facades\Mail;
+use App\Models\Setting;
 
 class ContactController extends Controller
 {
@@ -28,6 +32,14 @@ class ContactController extends Controller
         ]);
 
         Contact::create($validated);
+
+        // Send email to admin
+        $setting = Setting::first();
+        $adminEmail = 'anas_elrawy@yahoo.com';
+        // $adminEmail = $setting->email;
+        Mail::to($adminEmail)->send(new ContactMessageMail($validated));
+
+
         return redirect()->back()->with('success', 'تم إضافة الاتصال بنجاح!');
     }
 
