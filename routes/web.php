@@ -15,6 +15,9 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\EmployeeMiddleware;
 
 Auth::routes();
 
@@ -35,7 +38,8 @@ Route::get('/contact-us', [FrontEndController::class, 'contact'])->name('contact
 Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
 
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+// Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'Madmin'])->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
 
@@ -136,4 +140,41 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('faqs/{id}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
     Route::put('faqs/{id}', [FaqController::class, 'update'])->name('faqs.update');
     Route::delete('faqs/{id}', [FaqController::class, 'destroy'])->name('faqs.destroy');
+
+    // *Admin Routes - Employees
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+    Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::get('employees/{id}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::put('employees/{id}', [EmployeeController::class, 'update'])->name('employees.update');
+    Route::delete('employees/{id}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+
 });
+
+
+// Route::prefix('employee')->middleware('auth')->group(function () {
+Route::middleware(['auth', 'Memployee'])->prefix('employee')->group(function () {
+    
+    Route::get('/', [DashboardController::class, 'employeeDashbord'])->name('employee.dashboard');
+
+
+
+    Route::get('/projects', [ProjectController::class, 'index'])->name('employee.projects.index');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('employee.projects.create');
+    Route::post('/emp-store-projects', [ProjectController::class, 'store'])->name('employee.projects.store');
+    Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])->name('employee.projects.edit');
+    Route::put('/projects/{id}', [ProjectController::class, 'update'])->name('employee.projects.update');
+    Route::delete('projects/{id}', [ProjectController::class, 'destroy'])->name('employee.projects.destroy');
+    // Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('employee.projects.show');
+
+
+    // Admin Routes - Projects
+    // Route::get('projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    // Route::get('projects/{id}', [ProjectController::class, 'show'])->name('projects.show');
+    // Route::post('projects', [ProjectController::class, 'store'])->name('projects.store');
+    // Route::get('projects/{id}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    // Route::put('projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
+    // Route::delete('projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+});
+

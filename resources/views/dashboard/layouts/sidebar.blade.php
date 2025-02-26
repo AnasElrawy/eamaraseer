@@ -35,6 +35,37 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span>القائمة</span></li>
 
+                @if(auth()->user()->role === 'employee')
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('employee.dashboard') }}">
+                        <i class="ti ti-dashboard"></i> <span>لوحة التحكم</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarProjects" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProjects">
+                        <i class="ti ti-folder"></i> <span >المشاريع</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarProjects">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('employee.projects.create') }}" class="nav-link" > إضافة مشروع </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('employee.projects.index') }}" class="nav-link" > عرض المشاريع </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+
+                
+                @elseif(auth()->user()->role === 'admin')
+
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{ route('admin.index') }}">
                         <i class="ti ti-dashboard"></i> <span>لوحة التحكم</span>
@@ -120,6 +151,24 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('consultations.index') }}" class="nav-link"> عرض طلبات الخدمات</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link collapsed" href="#sidebarEmployee" data-bs-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="sidebarEmployee">
+                        <i class="ti ti-user-code"></i> <span>الموظفين</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarEmployee">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('employees.create') }}" class="nav-link"> إضافة موظف </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('employees.index') }}" class="nav-link"> عرض الموظفبن </a>
                             </li>
                         </ul>
                     </div>
@@ -233,6 +282,7 @@
                     </a>
                 </li>
 
+                @endif
 
             </ul>
         </div>

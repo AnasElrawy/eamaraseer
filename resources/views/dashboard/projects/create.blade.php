@@ -11,7 +11,11 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
+                        @if(auth()->user()->role === 'employee')
+                            <li class="breadcrumb-item"><a href="{{ route('employee.projects.index') }}">المشاريع</a></li>
+                        @elseif(auth()->user()->role === 'admin')
                             <li class="breadcrumb-item"><a href="{{ route('projects.index') }}">المشاريع</a></li>
+                        @endif  
                             <li class="breadcrumb-item active">أضف مشروع</li>
                         </ol>
                     </div>
@@ -27,7 +31,11 @@
                         <h4 class="card-title mb-0">تفاصيل المشروع</h4>
                     </div>
                     <div class="card-body">
+                    @if(auth()->user()->role === 'employee')
+                        <form action="{{ route('employee.projects.store') }}" method="POST" enctype="multipart/form-data">
+                    @elseif(auth()->user()->role === 'admin')
                         <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+                    @endif   
                             @csrf
                             <div class="row gy-4">
                                 <div class="col-md-6">
@@ -48,6 +56,19 @@
                                         <textarea name="description" class="form-control" id="description" rows="4" placeholder="أدخل وصف المشروع" required></textarea>
                                     </div>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <div>
+                                        <label for="service_id" class="form-label">الخدمة</label>
+                                        <select name="service_id" id="service_id" class="form-control" required>
+                                            <option value="" disabled selected>اختر الخدمة</option>
+                                            @foreach($services as $service)
+                                                <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-12">
                                     <div>
                                         <label for="content" class="form-label">المحتوى</label>

@@ -17,6 +17,8 @@ class Project extends Model
         'description',
         'content',
         'images',
+        'service_id',
+        'employee_id'
     ];
 
     protected $casts = [
@@ -25,6 +27,16 @@ class Project extends Model
 
     public function interests() {
         return $this->hasMany(RealEstateInterest::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(User::class, 'employee_id');
     }
     
 }

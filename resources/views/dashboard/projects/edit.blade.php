@@ -11,7 +11,11 @@
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
+                        @if(auth()->user()->role === 'employee')
+                            <li class="breadcrumb-item"><a href="{{ route('employee.projects.index') }}">المشاريع</a></li>
+                        @elseif(auth()->user()->role === 'admin')
                             <li class="breadcrumb-item"><a href="{{ route('projects.index') }}">المشاريع</a></li>
+                        @endif  
                             <li class="breadcrumb-item active">تحديث المشروع</li>
                         </ol>
                     </div>
@@ -27,7 +31,12 @@
                         <h4 class="card-title mb-0">تفاصيل المشروع</h4>
                     </div>
                     <div class="card-body">
+                    @if(auth()->user()->role === 'employee')
+                        <form action="{{ route('employee.projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+                    @elseif(auth()->user()->role === 'admin')
                         <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
+                    @endif   
+               
                             @csrf
                             @method('PUT')
                             <div class="row gy-4">
@@ -55,6 +64,21 @@
                                         <textarea name="description" class="form-control" id="description" rows="4" placeholder="أدخل وصف المشروع" required>{{ $project->description }}</textarea>
                                     </div>
                                 </div>
+                                
+                                {{-- الخدمة* --}}
+                                <div class="col-md-6">
+                                    <label for="service_id" class="form-label">الخدمة</label>
+                                    <select name="service_id" id="service_id" class="form-control" required>
+                                        <option value="" {{ $project->service_id == 0 ? 'selected' : '' }} disabled>اختر خدمة</option>
+                                        @foreach($services as $service)
+                                            <option value="{{ $service->id }}" {{ $project->service_id == $service->id ? 'selected' : '' }}>
+                                                {{ $service->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                
+                                
                                 <!-- المحتوى -->
                                 <div class="col-md-12">
                                     <div>
