@@ -31,6 +31,7 @@
                                 <th>العنوان</th>
                                 <th>الوصف</th>
                                 <th>الخدمة</th>
+                                <th>الموظف المسؤول</th>
                                 <th>الصورة الرئيسية</th>
                                 <th>تاريخ الإنشاء</th>
                                 <th>الإجراءات</th>
@@ -43,6 +44,7 @@
                                     <td>{{ $project->title }}</td>
                                     <td>{{ \Illuminate\Support\Str::limit($project->description, 50) }}</td>
                                     <td>{{ $project->service->name ?? 'غير محدد' }}</td> 
+                                    <td>{{ $project->employee->name ?? 'غير محدد' }}</td> 
                                     <td>
                                         <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" width="100">
                                     </td>

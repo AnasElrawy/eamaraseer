@@ -535,7 +535,9 @@
                             <div class="swiper-slide">
                                 <div class="portfolio-card style4">
                                     <div class="portfolio-img">
-                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" alt="project image">
+                                        <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" class="img-fluid" style="height: 50vh; object-fit: cover;">
+                                        {{-- <img src="{{ asset($project->image) }}" alt="{{ $project->title }}" alt="project image"> --}}
+
                                     </div>
                                     <div class="portfolio-content">
                                         <h3 class="portfolio-title"><a href="{{ route('project', $project->id ) }}">{{ $project->title }}

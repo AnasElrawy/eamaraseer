@@ -14,7 +14,8 @@ class RealEstateInterestController extends Controller
 
     public function index()
     {
-        $realEstateInterests = RealEstateInterest::all();
+        // $realEstateInterests = RealEstateInterest::all();
+        $realEstateInterests = RealEstateInterest::latest()->get();
         return view('dashboard.real_estate_interests.index', compact('realEstateInterests'));
     }
 
@@ -36,7 +37,7 @@ class RealEstateInterestController extends Controller
 
         // Send email to admin
         $setting = Setting::first();
-        $adminEmail = 'anas_elrawy@yahoo.com';
+        $adminEmail = 'abdulelah@eamaraseer.sa';
         // $adminEmail = $setting->email;
         Mail::to($adminEmail)->send(new InterestRealEstateMail($validated));
 

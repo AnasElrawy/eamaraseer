@@ -14,7 +14,8 @@ class ConsultationController extends Controller
 {
     public function index()
     {
-        $consultations = Consultation::with('service')->get();
+        // $consultations = Consultation::with('service')->get();
+        $consultations = Consultation::with('service')->latest()->get();
         return view('dashboard.consultations.index', compact('consultations'));
     }
 
@@ -37,7 +38,8 @@ class ConsultationController extends Controller
 
         // Send email to admin
         $setting = Setting::first();
-        $adminEmail = 'anas_elrawy@yahoo.com';
+        $adminEmail = 'abdulelah@eamaraseer.sa';
+        // $adminEmail = 'anas_elrawy@yahoo.com';
         // $adminEmail = $setting->email;
         Mail::to($adminEmail)->send(new ServiceRequestMail($validated));
 

@@ -1,4 +1,3 @@
-// عرض الموظفين
 @extends('dashboard.layouts.app')
 
 @section('content')
