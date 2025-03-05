@@ -61,28 +61,28 @@
                         </h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="#">معلومات عنا
+                                <li><a href="{{ route('about') }}">معلومات عنا
                                     </a></li>
-                                <li><a href="#">الخدمات
+                                <li><a href="{{ route('about') }}#services">الخدمات
                                     </a></li>
-                                <li><a href="#">الاسئلة الشائعة
+                                <li><a href="{{ route('faqs') }}">الاسئلة الشائعة
                                     </a></li>
-                                <li><a href="#">تواصل معنا
+                                <li><a href="{{ route('contact') }}">تواصل معنا
                                     </a></li>
-                                <li><a href="#">طلب استشارة</a></li>
+                                <li><a href="{{ route('consulting') }}">طلب حدمة</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-auto">
+                {{-- <div class="col-md-6 col-xl-auto">
                     <div class="widget widget_nav_menu footer-widget">
                         <h3 class="widget_title">يستكشف</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="#">جميع العقارات
+                                <li><a href="{{ route('projects') }}">جميع العقارات
                                     </a></li>
                                 <li><a href="#">وكلائنا</a></li>
-                                <li><a href="#">جميع المشاريع
+                                <li><a href="{{ route('projects') }}">جميع المشاريع
                                     </a></li>
                                 <li><a href="#">عمليتنا
                                     </a></li>
@@ -91,7 +91,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

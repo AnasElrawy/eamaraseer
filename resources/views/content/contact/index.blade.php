@@ -44,7 +44,7 @@
                         <div class="about-contact-details">
                             <h6 class="about-contact-details-title">العنوان </h6>
                             <p class="about-contact-details-text">
-                                المحلة، طريق المحلة الرئيسي، أبها 62432، المملكة العربية السعودية,
+                                {{ $setting->physical_address }}
 
                             </p>
                         </div>
@@ -57,8 +57,8 @@
                         </div>
                         <div class="about-contact-details">
                             <h6 class="about-contact-details-title">رقم الهاتف</h6>
-                            <p class="about-contact-details-text"><a href="tel:+966558878088">+966 55 887 8088</a></p>
-                            <p class="about-contact-details-text"><a href="tel:0558878088">0558878088</a></p>
+                            <p class="about-contact-details-text"><a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a></p>
+                            {{-- <p class="about-contact-details-text"><a href="tel:0558878088">0558878088</a></p> --}}
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                         <div class="about-contact-details">
                             <h6 class="about-contact-details-title">البريد الالكتروني</h6>
                             <p class="about-contact-details-text"><a
-                                    href="mailto:eamaraseer@gmail.com">eamaraseer@gmail.com</a></p>
+                                    href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
                         </div>
                     </div>
                 </div>

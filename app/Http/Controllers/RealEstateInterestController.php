@@ -37,8 +37,8 @@ class RealEstateInterestController extends Controller
 
         // Send email to admin
         $setting = Setting::first();
-        $adminEmail = 'abdulelah@eamaraseer.sa';
-        // $adminEmail = $setting->email;
+        // $adminEmail = 'abdulelah@eamaraseer.sa';
+        $adminEmail = $setting->receiving_email;
         Mail::to($adminEmail)->send(new InterestRealEstateMail($validated));
 
         return back()->with('success', 'تم إرسال اهتمامك بنجاح!');

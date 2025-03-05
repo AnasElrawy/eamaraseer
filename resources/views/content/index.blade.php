@@ -405,7 +405,7 @@
                 </div>
                 <div class="col-auto">
                     <div class="sec-btn">
-                        <a href="#" class="th-btn style-border2 th-btn-icon">عرض جميع العقارات
+                        <a href="{{ route('projects') }}" class="th-btn style-border2 th-btn-icon">عرض جميع العقارات
                         </a>
                     </div>
                 </div>
@@ -581,12 +581,12 @@
                 <div class="col-auto">
                     <div class="sec-btn">
                         <div class="icon-box">
-                            <button data-slider-prev="#testiSlider4-2"
-                                class="slider-arrow style6 default slider-next"><img
-                                    src="{{ asset('assets') }}/img/icon/arrow-right.svg" alt=""></button>
                             <button data-slider-next="#testiSlider4-2"
                                 class="slider-arrow style6 default slider-prev"><img
                                     src="{{ asset('assets') }}/img/icon/arrow-left.svg" alt=""></button>
+                            <button data-slider-prev="#testiSlider4-2"
+                                class="slider-arrow style6 default slider-next"><img
+                                    src="{{ asset('assets') }}/img/icon/arrow-right.svg" alt=""></button>
                         </div>
                     </div>
                 </div>

@@ -68,6 +68,13 @@
                                     <input type="text" name="map_address" class="form-control" id="map_address" value="{{ $settings->map_address }}" required>
                                 </div>
 
+
+                                <div class="col-md-6">
+                                    <label for="receiving_email" class="form-label">البريد الإلكتروني المستقبل</label>
+                                    <input type="email" name="receiving_email" class="form-control" id="receiving_email" value="{{ $settings->receiving_email }}" required>
+                                </div>
+
+
                                 <div class="col-md-6">
                                     <label for="physical_address" class="form-label">العنوان الفعلي</label>
                                     <input type="text" name="physical_address" class="form-control" id="physical_address" value="{{ $settings->physical_address }}" required>

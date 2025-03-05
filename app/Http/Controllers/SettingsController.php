@@ -22,9 +22,9 @@ class SettingsController extends Controller
                 'site_description' => 'nullable|string',
                 'phone' => 'required|string',
                 'email' => 'required|email',
+                'receiving_email' => 'nullable|email',
                 'physical_address' => 'required|string',
                 'map_address' => 'required|string',
-
                 'copyright' => 'required|string',
                 'favicon' => 'nullable|image',
                 'meta_title' => 'nullable|string',

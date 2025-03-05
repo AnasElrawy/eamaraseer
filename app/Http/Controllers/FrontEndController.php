@@ -68,7 +68,7 @@ class FrontEndController extends Controller
 
     public function projects()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(6);
         return view('content.projects.index', compact('projects'));
     }
 

@@ -6,7 +6,7 @@
 
 @section('head')
 
-    <title>{{ $setting->meta_title }} | الاستشارات العقارية</title>
+    <title>{{ $setting->meta_title }} | طلب الخدمة </title>
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-9">
                     <div class="breadcumb-content">
-                        <h1 class="breadcumb-title">الاستشارات العقارية</h1>
+                        <h1 class="breadcumb-title">طلب الخدمة</h1>
                     </div>
                 </div>
             </div>

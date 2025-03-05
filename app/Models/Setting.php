@@ -17,6 +17,7 @@ class Setting extends Model
         'site_description',
         'phone',
         'email',
+        'receiving_email',
         'map_address',
         'physical_address',
         'copyright',

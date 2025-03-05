@@ -49,6 +49,11 @@
                     <h4 class="text-muted">لا توجد مشاريع متاحة حاليًا</h4>
                 </div>
             @endif
+
+            <div class="d-flex justify-content-center mt-5">
+                {{ $projects->links('pagination.custom') }}
+            </div>
+
         </div>
     </section>
 

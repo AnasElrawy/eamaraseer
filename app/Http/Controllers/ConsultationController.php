@@ -38,9 +38,9 @@ class ConsultationController extends Controller
 
         // Send email to admin
         $setting = Setting::first();
-        $adminEmail = 'abdulelah@eamaraseer.sa';
+        // $adminEmail = 'abdulelah@eamaraseer.sa';
         // $adminEmail = 'anas_elrawy@yahoo.com';
-        // $adminEmail = $setting->email;
+        $adminEmail = $setting->receiving_email;
         Mail::to($adminEmail)->send(new ServiceRequestMail($validated));
 
 

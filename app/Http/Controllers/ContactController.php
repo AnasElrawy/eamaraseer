@@ -37,9 +37,9 @@ class ContactController extends Controller
 
         // Send email to admin
         $setting = Setting::first();
-        $adminEmail = 'anas_elrawy@yahoo.com';
+        // $adminEmail = 'anas_elrawy@yahoo.com';
         // $adminEmail = 'abdulelah@eamaraseer.sa';
-        // $adminEmail = $setting->email;
+        $adminEmail = $setting->receiving_email;
         Mail::to($adminEmail)->send(new ContactMessageMail($validated));
 
 
